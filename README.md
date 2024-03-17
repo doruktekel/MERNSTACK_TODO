@@ -23,6 +23,8 @@ MERN Full Stack Project (MongoDB, Express js, React js, Node js ). Here are some
 
 .Components Route
 
+.Tailwind Css
+
 .Toastfy Alert
 
 .Sweet Alert2
