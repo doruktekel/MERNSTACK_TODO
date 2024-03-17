@@ -17,6 +17,9 @@ const ToDos = () => {
       .catch((err) => console.log(err));
   };
 
+  const handleDeleteAllTodos = () => {};
+  const handleDeleteCompletedTodos = () => {};
+
   useEffect(() => {
     getTodos();
   }, []);
@@ -26,12 +29,30 @@ const ToDos = () => {
   }, [todos]);
 
   return (
-    <div className="flex flex-col gap-5">
-      {todos && todos.length > 0
-        ? todos.map((todoitem, index) => {
-            return <Todo key={index} todoitem={todoitem} getTodos={getTodos} />;
-          })
-        : null}
+    <div>
+      <div className="flex flex-col gap-5">
+        {todos && todos.length > 0
+          ? todos.map((todoitem, index) => {
+              return (
+                <Todo key={index} todoitem={todoitem} getTodos={getTodos} />
+              );
+            })
+          : null}
+      </div>
+      <div className="flex justify-center align-middle gap-10 m-5">
+        <button
+          onClick={handleDeleteAllTodos}
+          className="px-4 py-2 bg-indigo-400 text-white rounded-lg cursor-pointer border-2 border-indigo-400 hover:shadow-xl hover:bg-transparent  transition ease-in-out delay-150  "
+        >
+          Delete All ToDos
+        </button>
+        <button
+          onClick={handleDeleteCompletedTodos}
+          className="px-4 py-2 bg-indigo-400 text-white rounded-lg cursor-pointer border-2 border-indigo-400 hover:shadow-xl hover:bg-transparent  transition ease-in-out delay-150  "
+        >
+          Delete Completed ToDos
+        </button>
+      </div>
     </div>
   );
 };

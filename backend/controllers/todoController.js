@@ -36,6 +36,16 @@ const getTodo = asyncHandler(async (req, res) => {
   }
 });
 
+const deleteAllTodo = asyncHandler(async (req, res) => {
+  try {
+    await ToDo.deleteMany({});
+    res.status(200).json({ message: "Items was deleted succesfully" });
+  } catch (error) {
+    res.status(500);
+    throw new Error(error.message);
+  }
+});
+
 const deleteTodo = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -66,4 +76,11 @@ const updateTodo = asyncHandler(async (req, res) => {
   }
 });
 
-export { createTodo, getAllTodo, getTodo, updateTodo, deleteTodo };
+export {
+  createTodo,
+  getAllTodo,
+  getTodo,
+  updateTodo,
+  deleteTodo,
+  deleteAllTodo,
+};
