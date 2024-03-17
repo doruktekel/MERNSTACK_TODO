@@ -13,7 +13,7 @@ router.post("/", createTodo);
 
 router.get("/", getAllTodo);
 
-router.get("/", deleteAllTodo);
+router.delete("/", deleteAllTodo);
 
 router.get("/:id", getTodo);
 
