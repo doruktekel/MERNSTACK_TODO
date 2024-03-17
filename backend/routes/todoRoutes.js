@@ -6,11 +6,14 @@ import {
   createTodo,
   deleteTodo,
   updateTodo,
+  deleteAllTodo,
 } from "../controllers/todoController.js";
 
 router.post("/", createTodo);
 
 router.get("/", getAllTodo);
+
+router.get("/", deleteAllTodo);
 
 router.get("/:id", getTodo);
 
